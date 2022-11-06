@@ -134,6 +134,12 @@ module.exports = {
         mnemonic: mnemonic(),
       },
     },
+    goerliOptimism: {
+      url: "https://opt-goerli.g.alchemy.com/v2/okD4NHSbPF0GBrtuhWQNx4VjxFh5dNdN",
+      accounts: {
+        mnemonic: mnemonic(),
+      },
+    },
     xdai: {
       url: "https://rpc.xdaichain.com/",
       gasPrice: 1000000000,
@@ -265,6 +271,11 @@ module.exports = {
         mnemonic: mnemonic(),
       },
     },
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: "T9UX3HH3BQE9GRH1SHT7KR1P611YJQFESF",
   },
   solidity: {
     compilers: [
