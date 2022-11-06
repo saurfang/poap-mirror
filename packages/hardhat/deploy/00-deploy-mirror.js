@@ -17,7 +17,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
   const ERC721Mirror = await ethers.getContract("ERC721Mirror", deployer);
   console.log(ERC721Mirror.address);
-  await ERC721Mirror.setUrls(["https://DarkHalfProfile.saurfang1.repl.co/"]);
+  await ERC721Mirror.setUrls(["https://fabuloussnowapplicationstack.ericzhang98.repl.co/"]);
 
   /*
     // Getting a previously deployed contract
