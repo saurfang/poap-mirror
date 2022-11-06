@@ -56,7 +56,7 @@ export default function Contract({
   chainId,
   contractConfig,
 }) {
-  const contracts = useContractLoader(provider, contractConfig, chainId);
+  const contracts = useContractLoader(signer, contractConfig, chainId);
   let contract;
   if (!customContract) {
     contract = contracts ? contracts[name] : "";

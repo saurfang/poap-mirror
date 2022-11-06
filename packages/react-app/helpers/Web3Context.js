@@ -17,6 +17,7 @@ import externalContracts from "../contracts/external_contracts";
 import Portis from "@portis/web3";
 import Fortmatic from "fortmatic";
 import Authereum from "authereum";
+import { CCIPReadProvider } from "@chainlink/ethers-ccip-read-provider";
 
 const { ethers } = require("ethers");
 
@@ -44,7 +45,7 @@ export function Web3Provider({ children, ...props }) {
     return navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://rpc.scaffoldeth.io:48544") : null;
   }, [navigator.onLine]);
   const poktMainnetProvider = useMemo(() => {
-    return navigator.onLine
+    return navigator.onLine && false
       ? new ethers.providers.StaticJsonRpcProvider(
           "https://eth-mainnet.gateway.pokt.network/v1/lb/611156b4a585a20035148406",
         )
@@ -64,7 +65,8 @@ export function Web3Provider({ children, ...props }) {
       ? process.env.NEXT_PUBLIC_PROVIDER
       : localProviderUrl;
     if (DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
-    return new ethers.providers.StaticJsonRpcProvider(localProviderUrlFromEnv);
+    // return new CCIPReadProvider(new ethers.providers.StaticJsonRpcProvider(localProviderUrlFromEnv));
+    return (new ethers.providers.StaticJsonRpcProvider(localProviderUrlFromEnv));
   }, []);
 
   // 🔭 block explorer URL
